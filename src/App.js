@@ -1,5 +1,6 @@
 
 import SignUp from "./pages/SignUp"
+import Login from "./pages/Login"
 
 
 const App = () => {
@@ -8,7 +9,9 @@ const App = () => {
 
   return(
     <div>
-          <SignUp />
+      
+          <SignUp /> 
+          <Login />
     </div>
   )
 }

@@ -1,15 +1,15 @@
 import React,{useState} from "react" 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import firebaseApp from "../firebase";
 
 const auth = getAuth(firebaseApp);
 
-const SignUp=()=>{
+const Login=()=>{
     const[email, setEmail] = useState("")
     const[password,setPassword] = useState("")
     
-    function signUpUser(){
-        createUserWithEmailAndPassword(auth, email, password )
+    function loginUser(){
+        signInWithEmailAndPassword(auth, email, password )
         .then(value => console.log("user created", value))
         .catch(error => console.log("error", error))
     }
@@ -17,7 +17,7 @@ const SignUp=()=>{
 
      return(
         <div>
-            <h1> SignIn Screen </h1>
+             <h1> Login Screen </h1>
              <input 
                type="email"
                 placeholder="Email"
@@ -32,7 +32,7 @@ const SignUp=()=>{
                 onChange={(e)=>setPassword(e.target.value)}
              />    
 
-             <button onClick={signUpUser}> Signup </button>
+             <button onClick={loginUser}>  Login </button>
 
 
         </div>
@@ -40,4 +40,4 @@ const SignUp=()=>{
      )
 }
 
-export default SignUp
+export default  Login
